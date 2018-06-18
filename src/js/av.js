@@ -6,10 +6,15 @@ AV.init({
   appKey: APP_KEY
 })
 
-// var TestObject = AV.Object.extend('TestObject');
-// var testObject = new TestObject();
-// testObject.save({
-//   words: 'Hello World!'
-// }).then(function(object) {
-//   alert('LeanCloud Rocks!');
-// })
+//  // 新建 AVUser 对象实例
+//  var user = new AV.User();
+//  // 设置用户名
+//  user.setUsername('Tom');
+//  // 设置密码
+//  user.setPassword('cat!@#123');
+//  // 设置邮箱
+//  user.setEmail('tom@leancloud.cn');
+//  user.signUp().then(function (loggedInUser) {
+//      console.log(loggedInUser);
+//  }, function (error) {
+//  })

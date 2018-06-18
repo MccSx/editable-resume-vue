@@ -2,7 +2,14 @@
 *::before,*::after{box-sizing: border-box;}
 ul,ol{list-style: none;}
 body{font-size: 18px; width: 100vw; height: 100vh;}
-.page{display: flex; flex-direction: row; width: 100%; height: 100%;}
+.page{width: 100%; height: 100%;}
 
-
+/* 主页面 */
+.page>div{display: flex; flex-direction: row; width: 100%; height: 100%;}
+aside{border: 1px solid red; display: flex; flex-direction: column; justify-content: space-between;}
 aside .up,aside .down{display: flex; flex-direction: column;}
+aside .up{flex-grow: 1;}
+
+/* 注册页面 */
+
+/* 登录页面 */
