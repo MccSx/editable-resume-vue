@@ -1,17 +1,11 @@
 window.Page = {
-  data() {
-    return {
-      resume:{
-        name:'姓名'
-      }
-    }
-  },
+  props:['resume','currentUser','logoutVisible'],
   template:`
   <div>
     <aside>
       <div class="up">
         <button @click="isLogin">登录/注册</button>
-        <button @click="logout">登出</button>
+        <button @click="logout" v-show="logoutVisible.logout">登出</button>
       </div>
       <div class="down">
         <button>保存</button>
@@ -21,18 +15,14 @@ window.Page = {
       </div>          
     </aside>
     <main>
-      <h2><span>{{resume.name}}</span></h2>
+      <h2><span ref="output">{{resume.name}}</span></h2>
     </main>
   </div>
   `,
   methods:{
     isLogin() {
-      console.log(1)
       let currentUser = AV.User.current()
-      console.log(2)
-      console.log(currentUser)
       if (currentUser) {
-        this.saveResume()
       }
       else {
         this.$router.push('/login')
@@ -40,6 +30,7 @@ window.Page = {
     },
     logout() {
       AV.User.logOut()
+      this.logoutVisible.logout = false
       window.location.reload()
       alert('注销成功')
     },

@@ -1,7 +1,8 @@
 window.Login = {
+  props:['resume','currentUser','logoutVisible'],
   data() {
     return {
-      signUpData:{
+      loginData:{
         email:'',
         password:''
       }
@@ -13,8 +14,8 @@ window.Login = {
       <button class="icon" @click="toIndex">X</button>
       <form action="" class="form" @submit.prevent="onSignUp">
         <h2>登录</h2>
-        <input type="text" name="email" placeholder="email" v-model="signUpData.email">
-        <input type="password" name="password" placeholder="password" v-model="signUpData.password">
+        <input type="text" name="email" placeholder="email" v-model="loginData.email">
+        <input type="password" name="password" placeholder="password" v-model="loginData.password">
         <button>登录</button>
         <p><span>还没有账号？<router-link to="/signUp">立即注册</router-link></span></p>
       </form>
@@ -26,7 +27,10 @@ window.Login = {
       this.$router.push('/')
     },
     onSignUp() {
-      AV.User.logIn(this.signUpData.email, this.signUpData.password).then((user) => {
+      AV.User.logIn(this.loginData.email, this.loginData.password).then((user) => {
+        // this.currentUser = user.toJSON()
+        this.resume.name = 'jack'
+        this.logoutVisible.logout = false
         this.toIndex()
       }, (error) => {
         if (error.code === 211) {

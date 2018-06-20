@@ -9,7 +9,3 @@ body{font-size: 18px; width: 100vw; height: 100vh;}
 aside{border: 1px solid red; display: flex; flex-direction: column; justify-content: space-between;}
 aside .up,aside .down{display: flex; flex-direction: column;}
 aside .up{flex-grow: 1;}
-
-/* 注册页面 */
-
-/* 登录页面 */

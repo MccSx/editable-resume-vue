@@ -1,7 +1,7 @@
 window.SignUp = {
   data() {
     return {
-      loginData:{
+      signUpData:{
         email:'',
         password:''
       }
@@ -13,8 +13,8 @@ window.SignUp = {
       <button class="icon" @click="toIndex">X</button>
       <form action="" class="form" @submit.prevent="onLogin">
         <h2>注册</h2>
-        <input type="text" name="email" placeholder="email" v-model="loginData.email">
-        <input type="password" name="password" placeholder="password" v-model="loginData.password">
+        <input type="text" name="email" placeholder="email" v-model="signUpData.email">
+        <input type="password" name="password" placeholder="password" v-model="signUpData.password">
         <button>注册</button>
         <p><span>已经有账号？<router-link to="/login">立即登录</router-link></span></p>
       </form>
@@ -27,9 +27,9 @@ window.SignUp = {
     },
     onLogin() {
       var user = new AV.User();
-      user.setUsername(this.loginData.email)
-      user.setPassword(this.loginData.password)
-      user.setEmail(this.loginData.email)
+      user.setUsername(this.signUpData.email)
+      user.setPassword(this.signUpData.password)
+      user.setEmail(this.signUpData.email)
       user.signUp().then((user) => {
         alert('注册成功')
       }, (error) => {
