@@ -1,5 +1,5 @@
 window.Login = {
-  props:['resume','currentUser','logoutVisible'],
+  props:['resume','currentUser'],
   data() {
     return {
       loginData:{
@@ -28,9 +28,8 @@ window.Login = {
     },
     onSignUp() {
       AV.User.logIn(this.loginData.email, this.loginData.password).then((user) => {
-        // this.currentUser = user.toJSON()
-        this.resume.name = 'jack'
-        this.logoutVisible.logout = false
+        let currentUser = user.toJSON()
+        this.$emit('login', currentUser)
         this.toIndex()
       }, (error) => {
         if (error.code === 211) {

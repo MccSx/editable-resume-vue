@@ -2,9 +2,7 @@ let globalData = {
   resume:{
     name:'姓名'
   },
-  currentUser:{},
-  // logoutVisible:true
-  logoutVisible: {logout: true}
+  currentUser:{}
 }
 
 const routes = [
@@ -20,5 +18,15 @@ const router = new VueRouter({
 const app = new Vue({
   router,
   el: '#page',
-  data:globalData
+  data:globalData,
+  methods:{
+    onLogin(data) {
+      this.currentUser = data
+    }
+  }
 })
+
+let currentUser = AV.User.current()
+if (currentUser) {
+  globalData.currentUser = currentUser.toJSON()
+}

@@ -2,10 +2,22 @@
 *::before,*::after{box-sizing: border-box;}
 ul,ol{list-style: none;}
 body{font-size: 18px; width: 100vw; height: 100vh;}
+.icon {width: 1em; height: 1em; vertical-align: -0.15em; fill: currentColor; overflow: hidden;}
 .page{width: 100%; height: 100%;}
 
 /* 主页面 */
 .page>div{display: flex; flex-direction: row; width: 100%; height: 100%;}
-aside{border: 1px solid red; display: flex; flex-direction: column; justify-content: space-between;}
+aside{width: 6%; display: flex; flex-direction: column; justify-content: space-between; background: #3B4549;}
+
 aside .up,aside .down{display: flex; flex-direction: column;}
+aside .user>.icon{width: 2em; height: 2em;}
+aside .down li{margin: 0 10px; border-top: 1px solid #444D51; padding: 10px 0; color: #77858B; cursor: pointer; text-align: center;}
+aside .up li{margin: 0 10px; border: 1px solid #77858B; margin-top: 20px; padding: 10px 0; color: #77858B; cursor: pointer; 
+  border-radius: 30px; font-size: 16px; text-align: center;}
+aside .up li.user{border: none;}
+aside .down ul{margin-bottom: 20px;}
+aside .down li:last-child{border-bottom: 1px solid #444D51;}
+aside .up li:hover,aside .down li:hover{color: white;}
 aside .up{flex-grow: 1;}
+
+main{background: #E8E8EA; width: 100%;}

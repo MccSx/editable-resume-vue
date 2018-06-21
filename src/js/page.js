@@ -1,17 +1,51 @@
 window.Page = {
-  props:['resume','currentUser','logoutVisible'],
+  props:['resume','currentUser'],
   template:`
   <div>
     <aside>
       <div class="up">
-        <button @click="isLogin">登录/注册</button>
-        <button @click="logout" v-show="logoutVisible.logout">登出</button>
+        <ul>
+          <li @click="isLogin" v-show="!currentUser.objectId">登录/注册</li>
+          <li class="user" v-show="currentUser.objectId">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-yonghu"></use>
+            </svg>
+          </li>
+        </ul>
       </div>
       <div class="down">
-        <button>保存</button>
-        <button>分享</button>
-        <button>打印</button>
-        <button>换肤</button>
+        <ul>
+          <li @click="logout" v-show="currentUser.objectId">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-dengchu"></use>
+            </svg>
+            登出
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon--"></use>
+            </svg>
+            保存
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-fenxiang"></use>
+            </svg>
+            分享
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-pdf"></use>
+            </svg>
+            打印
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-huanfu"></use>
+            </svg>
+            换肤
+          </li>
+        </ul>
       </div>          
     </aside>
     <main>
@@ -21,8 +55,8 @@ window.Page = {
   `,
   methods:{
     isLogin() {
-      let currentUser = AV.User.current()
-      if (currentUser) {
+      if (this.currentUser.objectId) {
+        console.log(this.currentUser)
       }
       else {
         this.$router.push('/login')
@@ -30,7 +64,6 @@ window.Page = {
     },
     logout() {
       AV.User.logOut()
-      this.logoutVisible.logout = false
       window.location.reload()
       alert('注销成功')
     },
