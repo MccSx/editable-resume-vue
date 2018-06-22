@@ -49,7 +49,63 @@ window.Page = {
       </div>          
     </aside>
     <main>
-      <h2><span ref="output">{{resume.name}}</span></h2>
+      <div class="main-page">
+        <section class="profile">
+          <h2 class="name">{{resume.name}}</h2>
+          <h5 class="job">{{resume.jobTitle}}</h5>
+          <div class="row">
+            <div>
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-youjian"></use>
+              </svg>
+              <span>{{resume.email}}</span>
+            </div>
+            <div>
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-xingbie"></use>
+              </svg>
+              <span>{{resume.gender}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-shouji"></use>
+              </svg>
+              <span>{{resume.phone}}</span>
+            </div>
+            <div>
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-xueli"></use>
+              </svg>
+              <span>{{resume.education}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-dizhi"></use>
+              </svg>
+              <span>{{resume.address}}</span>
+            </div>
+            <div>
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-rili"></use>
+              </svg>
+              <span>{{resume.birthday}}</span>
+            </div>
+          </div>
+        </section>
+        <section class="skills">
+          <h3>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-skills"></use>
+            </svg>
+            个人技能
+          </h3>
+          <star :num="4"></star>
+        </section>
+      </div>
     </main>
   </div>
   `,

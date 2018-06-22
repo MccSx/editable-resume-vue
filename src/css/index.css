@@ -1,6 +1,7 @@
 *{margin: 0; padding: 0; box-sizing: border-box;}
 *::before,*::after{box-sizing: border-box;}
 ul,ol{list-style: none;}
+h1,h2,h3,h4,h5,h6{font-weight: normal;}
 body{font-size: 18px; width: 100vw; height: 100vh;}
 .icon {width: 1em; height: 1em; vertical-align: -0.15em; fill: currentColor; overflow: hidden;}
 .page{width: 100%; height: 100%;}
@@ -12,7 +13,7 @@ aside{width: 6%; display: flex; flex-direction: column; justify-content: space-b
 aside .up,aside .down{display: flex; flex-direction: column;}
 aside .user>.icon{width: 2em; height: 2em;}
 aside .down li{margin: 0 10px; border-top: 1px solid #444D51; padding: 10px 0; color: #77858B; cursor: pointer; text-align: center;}
-aside .up li{margin: 0 10px; border: 1px solid #77858B; margin-top: 20px; padding: 10px 0; color: #77858B; cursor: pointer; 
+aside .up li{margin: 0 10px; border: 1px solid #77858B; margin-top: 20px; padding: 5px 0; color: #77858B; cursor: pointer; 
   border-radius: 30px; font-size: 16px; text-align: center;}
 aside .up li.user{border: none;}
 aside .down ul{margin-bottom: 20px;}
@@ -20,4 +21,14 @@ aside .down li:last-child{border-bottom: 1px solid #444D51;}
 aside .up li:hover,aside .down li:hover{color: white;}
 aside .up{flex-grow: 1;}
 
-main{background: #E8E8EA; width: 100%;}
+main{background: #E8E8EA; width: 100%; padding: 12px 0 0 12px;}
+main .main-page{width: 60%; height: 100%; background: white; padding: 50px 30px 0 30px;}
+main .profile{border-bottom: 2px solid black;}
+main .name{font-weight: 700; margin-bottom: 5px;}
+main .job{margin-bottom: 26px;}
+main .row{display: flex; flex-direction: row; width: 60%; margin-bottom: 18px;}
+main .row:last-child{margin-bottom: 36px;}
+main .row>div{width: 50%;}
+main .row>div>span{margin-left: 10px;}
+main .skills h3{color:#1296DB;}
+main .skills h3 .icon{fill: black;}
