@@ -22,13 +22,26 @@ aside .up li:hover,aside .down li:hover{color: white;}
 aside .up{flex-grow: 1;}
 
 main{background: #E8E8EA; width: 100%; padding: 12px 0 0 12px;}
-main .main-page{width: 60%; height: 100%; background: white; padding: 50px 30px 0 30px;}
-main .profile{border-bottom: 2px solid black;}
+main .main-page{width: 60%; height: 100%; background: white; padding: 50px 30px 0 30px; overflow: auto;}
+main .profile{border-bottom: 2px solid black; padding-left: 40px;}
 main .name{font-weight: 700; margin-bottom: 5px;}
 main .job{margin-bottom: 26px;}
 main .row{display: flex; flex-direction: row; width: 60%; margin-bottom: 18px;}
 main .row:last-child{margin-bottom: 36px;}
 main .row>div{width: 50%;}
 main .row>div>span{margin-left: 10px;}
-main .skills h3{color:#1296DB;}
-main .skills h3 .icon{fill: black;}
+
+main .skills{margin-top: 30px;}
+main .skills ul,main .projects ul{margin-top: 20px; padding-left: 10px; border-left: 4px solid #1296DB;}
+main .skills ul>li,main .projects ul>li{margin-top: 16px; margin-bottom: 26px;}
+main .skills ul>li p{margin-top: 10px;}
+main .skills h3,main .projects h3{color:#1296DB; font-weight: 700; font-size: 26px;}
+main .skills h3 .icon,main .projects h3 .icon{fill: black;}
+main .skills .skillName{display: flex; flex-direction: row; position: relative;}
+main .skills .skillName::before,main .projects .projectName::before{content: ''; display: block; width: 10px; height: 10px; background: black; border-radius: 50%; 
+  position: absolute; left: -17px; top: 50%; margin-top: -4px; border: 2px solid white;}
+main .skills .skillName>span{margin-right: 20px;}
+ 
+main .projects{padding-top: 30px;}
+main .projects .keywords{color: #1296DB; font-size: 15px; margin: 3px 0 8px 0;}
+main .projects .projectName{position: relative;}

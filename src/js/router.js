@@ -9,12 +9,14 @@ let globalData = {
     gender: '男',
     phone: '12312341234',
     skills: [
-      {name: '请填写技能名称', starNumber:4, description: '请填写技能描述'},
-      {name: '请填写技能名称', starNumber:5, description: '请填写技能描述'},
-      {name: '请填写技能名称', starNumber:3, description: '请填写技能描述'},
-      {name: '请填写技能名称', starNumber:4, description: '请填写技能描述'}
+      {name: '技能名称', starNumber:4, description: '请填写技能描述请填写技能描述请填写技能描述'},
+      {name: '技能名称', starNumber:5, description: '请填写技能描述请填写技能描述请填写技能描述'},
+      {name: '技能名称', starNumber:3, description: '请填写技能描述请填写技能描述请填写技能描述'},
+      {name: '技能名称', starNumber:4, description: '请填写技能描述请填写技能描述请填写技能描述'}
     ],
     projects: [
+      {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
+      {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
       {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
       {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'}
     ]

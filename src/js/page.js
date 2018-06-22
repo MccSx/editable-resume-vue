@@ -103,7 +103,41 @@ window.Page = {
             </svg>
             个人技能
           </h3>
-          <star :num="4"></star>
+          <ul>
+            <li v-for="skill in resume.skills">
+              <div class="skillName">
+                <span>{{skill.name}}</span>
+                <star :num="skill.starNumber"></star>
+              </div>
+              <div class="skillDescription">
+                <p>{{skill.description}}</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section class="projects">
+          <h3>
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-project"></use>
+            </svg>
+            个人项目
+          </h3>
+          <ul>
+            <li v-for="project in resume.projects">
+              <div class="projectName">
+                <span>{{project.name}}</span>
+                <a :href="project.link">
+                  <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-tiaozhuan"></use>
+                  </svg>
+                </a>
+              </div>
+              <p class="keywords">{{project.keywords}}</p>
+              <div class="description">
+                <p>{{project.description}}</p>
+              </div>
+            </li>
+          </ul>
         </section>
       </div>
     </main>
