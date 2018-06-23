@@ -51,20 +51,20 @@ window.Page = {
     <main>
       <div class="main-page">
         <section class="profile">
-          <h2 class="name">{{resume.name}}</h2>
-          <h5 class="job">{{resume.jobTitle}}</h5>
+          <h2 class="name"><edit-span :message="resume.name"></edit-span></h2>
+          <h5 class="job"><edit-span :message="resume.jobTitle"></edit-span></h5>
           <div class="row">
             <div>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-youjian"></use>
               </svg>
-              <span>{{resume.email}}</span>
+              <span><edit-span :message="resume.email"></span>
             </div>
             <div>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-xingbie"></use>
               </svg>
-              <span>{{resume.gender}}</span>
+              <span><edit-span :message="resume.gender"></span>
             </div>
           </div>
           <div class="row">
@@ -72,13 +72,13 @@ window.Page = {
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-shouji"></use>
               </svg>
-              <span>{{resume.phone}}</span>
+              <span><edit-span :message="resume.phone"></span>
             </div>
             <div>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-xueli"></use>
               </svg>
-              <span>{{resume.education}}</span>
+              <span><edit-span :message="resume.education"></span>
             </div>
           </div>
           <div class="row">
@@ -86,13 +86,13 @@ window.Page = {
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-dizhi"></use>
               </svg>
-              <span>{{resume.address}}</span>
+              <span><edit-span :message="resume.address"></span>
             </div>
             <div>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-rili"></use>
               </svg>
-              <span>{{resume.birthday}}</span>
+              <span><edit-span :message="resume.birthday"></span>
             </div>
           </div>
         </section>
@@ -106,11 +106,11 @@ window.Page = {
           <ul>
             <li v-for="skill in resume.skills">
               <div class="skillName">
-                <span>{{skill.name}}</span>
+                <span><edit-span :message="skill.name"></span>
                 <star :num="skill.starNumber"></star>
               </div>
               <div class="skillDescription">
-                <p>{{skill.description}}</p>
+                <p><edit-span :message="skill.description"></p>
               </div>
             </li>
           </ul>
@@ -125,16 +125,16 @@ window.Page = {
           <ul>
             <li v-for="project in resume.projects">
               <div class="projectName">
-                <span>{{project.name}}</span>
+                <span><edit-span :message="project.name"></span>
                 <a :href="project.link">
                   <svg class="icon" aria-hidden="true">
                     <use xlink:href="#icon-tiaozhuan"></use>
                   </svg>
                 </a>
               </div>
-              <p class="keywords">{{project.keywords}}</p>
+              <p class="keywords"><edit-span :message="project.keywords"></p>
               <div class="description">
-                <p>{{project.description}}</p>
+                <p><edit-span :message="project.description"></p>
               </div>
             </li>
           </ul>

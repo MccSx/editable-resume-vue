@@ -6,8 +6,8 @@ let globalData = {
     email: 'xxx@163.com',
     address:'江苏省xxx市xxx区xxx街xxx号',
     education:'本科',
-    gender: '男',
-    phone: '12312341234',
+    gender: '男性',
+    phone: '123-1234-1234',
     skills: [
       {name: '技能名称', starNumber:4, description: '请填写技能描述请填写技能描述请填写技能描述'},
       {name: '技能名称', starNumber:5, description: '请填写技能描述请填写技能描述请填写技能描述'},
