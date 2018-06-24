@@ -12,17 +12,16 @@ Vue.component('star', {
     }
   },
   template:`
-    <div>
+    <div class="star">
       <span v-for="n in number">
         <svg class="icon" aria-hidden="true" style="fill:#1296DB">
           <use xlink:href="#icon-wujiaoxing1"></use>
         </svg>
-      </span>
-      <span v-for="n in (5-number)">
+      </span><span v-for="n in (5-number)">
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-wujiaoxing1"></use>
         </svg>
-      </span>
+      </span><edit-span :message="num + '分(0-5分)'"></edit-span>
     </div>
   `
 })

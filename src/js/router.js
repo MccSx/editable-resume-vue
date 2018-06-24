@@ -1,6 +1,6 @@
 let globalData = {
   resume:{
-    name: '姓 名',
+    name: '姓名',
     jobTitle: '前端工程师',
     birthday: '1990.1.1',
     email: 'xxx@163.com',
@@ -41,6 +41,9 @@ const app = new Vue({
   methods:{
     onLogin(data) {
       this.currentUser = data
+    },
+    change(data) {
+      this.resume = data
     }
   }
 })
