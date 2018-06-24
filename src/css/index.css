@@ -47,12 +47,15 @@ main .skills ul>li p{margin-top: 10px;}
 main .skills h3,main .projects h3{color:#1296DB; font-weight: 700; font-size: 26px;}
 main .skills h3 .icon,main .projects h3 .icon{fill: black;}
 main .skills .skillName{display: flex; flex-direction: row; position: relative;}
-main .skills .skillName::before,main .projects .projectName::before{content: ''; display: block; width: 10px; height: 10px; background: black; border-radius: 50%; 
+main .skills .skillName::before,main .projects .projectName::before{content: ''; display: block; width: 10px; height: 10px; background: black; 
+  border-radius: 50%; 
   position: absolute; left: -17px; top: 50%; margin-top: -4px; border: 2px solid white;}
 main .skills .skillName>.skillMessage{margin-right: 20px;}
 main .skills .skillName .star{position: relative;}
-main .skills .skillName .star .edit-wrapper{position: absolute;width: 100%; height: 100%; font-size: inherit; resize: none; top: 0; left: 0; width: 100%;}
-main .skills .skillName .star .edit-wrapper textarea{width: 100%; height: 100%; font-size: inherit; overflow: hidden; resize: none;border-radius: 5px; border: 1px solid #1296DB;}
+main .skills .skillName .star .edit-wrapper{position: absolute;width: 100%; height: 100%; font-size: 16px; resize: none; top: 0; left: 0; 
+  width: 100%;}
+main .skills .skillName .star .edit-wrapper textarea{width: 100%; height: 100%; font-size: inherit; overflow: hidden; resize: none;
+  border-radius: 5px; border: 1px solid #1296DB;}
 main .skills .skillName .star .messageName{display: none;}
 main .projects{padding-top: 30px;}
 main .projects .keywords{color: #1296DB; font-size: 15px; margin: 3px 0 8px 0;}

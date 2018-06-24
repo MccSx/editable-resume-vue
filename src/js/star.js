@@ -21,7 +21,15 @@ Vue.component('star', {
         <svg class="icon" aria-hidden="true">
           <use xlink:href="#icon-wujiaoxing1"></use>
         </svg>
-      </span><edit-span :message="num + '分(0-5分)'"></edit-span>
+      </span><edit-span :message="num + '分(1-5分)'" @changeMessage="changeStar"></edit-span>
     </div>
-  `
+  `,
+  methods:{
+    changeStar(starNumber) {
+      let myStarNumber = starNumber.substring(0,1)
+      if (parseInt(myStarNumber)) {
+        this.$emit('changeStar', parseInt(myStarNumber))
+      }
+    }
+  }
 })

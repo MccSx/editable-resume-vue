@@ -107,7 +107,7 @@ window.Page = {
             <li v-for="(skill,index) in resume.skills">
               <div class="skillName">
                 <div class="skillMessage"><edit-span :message="skill.name" @changeMessage="change(['skills',index,'name'], $event)"></edit-span></div>
-                <star :num="skill.starNumber"></star>
+                <star :num="skill.starNumber" @changeStar="change(['skills',index,'starNumber'], $event)"></star>
               </div>
               <div class="skillDescription">
                 <p><edit-span :message="skill.description" @changeMessage="change(['skills',index,'description'], $event)"></edit-span></p>
