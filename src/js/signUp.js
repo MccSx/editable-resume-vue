@@ -1,4 +1,5 @@
 window.SignUp = {
+  props:['resume','currentUser'],
   data() {
     return {
       signUpData:{
@@ -30,6 +31,7 @@ window.SignUp = {
       user.setUsername(this.signUpData.email)
       user.setPassword(this.signUpData.password)
       user.setEmail(this.signUpData.email)
+      user.set('resume', this.resume)
       user.signUp().then((user) => {
         alert('注册成功')
       }, (error) => {

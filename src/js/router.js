@@ -39,8 +39,11 @@ const app = new Vue({
   el: '#page',
   data:globalData,
   methods:{
-    onLogin(data) {
-      this.currentUser = data
+    onLogin(user) {
+      this.currentUser = user
+      getResume(user).then((resume) => {
+        globalData.resume = resume
+      })
     },
     change(data) {
       this.resume = data
@@ -51,4 +54,16 @@ const app = new Vue({
 let currentUser = AV.User.current()
 if (currentUser) {
   globalData.currentUser = currentUser.toJSON()
+  getResume(currentUser.toJSON()).then((resume) => {
+    globalData.resume = resume
+  })
+}
+
+function getResume(user) {
+  let query = new AV.Query('User')
+  return query.get(user.objectId).then((user) => {
+    return user.toJSON().resume
+  }, (error) => {
+    console.log(error)
+  })
 }

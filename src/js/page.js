@@ -21,7 +21,7 @@ window.Page = {
             </svg>
             登出
           </li>
-          <li>
+          <li @click="saveResume">
             <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon--"></use>
             </svg>
@@ -145,19 +145,23 @@ window.Page = {
   `,
   methods:{
     isLogin() {
-      if (this.currentUser.objectId) {
-        console.log(this.currentUser)
-      }
-      else {
-        this.$router.push('/login')
-      }
+      this.$router.push('/login')
     },
     logout() {
       AV.User.logOut()
       window.location.reload()
       alert('注销成功')
     },
-    saveResume() {},
+    saveResume() {
+      let {id} = AV.User.current()
+      if (id) {
+        let user = AV.Object.createWithoutData('User', id)
+        user.set('resume', this.resume)
+        user.save().then(() => {alert('保存成功')}, () => {alert('保存失败')})
+      } else {
+        alert('请先登录')
+      }
+    },
     change(key,message) {
       if (typeof key === 'string') {
         this.resume[key] = message
