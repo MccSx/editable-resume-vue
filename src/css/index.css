@@ -11,7 +11,8 @@ body{font-size: 18px; width: 100vw; height: 100vh;}
   transition: all 0.3s; text-align: center; cursor: pointer; color: white; display: inline-block; opacity: 0; z-index: 10;}
 .edit-wrapper:hover>.edit,.edit-wrapper>.edit.active{opacity: 1;}
 .edit-wrapper>.edit-content{display: inline-block; opacity: 0; left: 0; top: 0; position: absolute;  width: 100%; height: 100%; transition: all 0.3s;}
-.edit-wrapper>.edit-content textarea{width: 100%; height: 100%; font-size: inherit; overflow: hidden; resize: none; border-radius: 5px; border: 1px solid #1296DB;}
+.edit-wrapper>.edit-content textarea{width: 100%; height: 100%; font-size: inherit; overflow: hidden; resize: none; border-radius: 5px; 
+  border: 1px solid #1296DB;}
 .edit-wrapper>.edit-content.active{opacity: 1;}
 
 /* 主页面 */
@@ -50,7 +51,7 @@ main .skills .skillName{display: flex; flex-direction: row; position: relative;}
 main .skills .skillName::before,main .projects .projectName::before{content: ''; display: block; width: 10px; height: 10px; background: black; 
   border-radius: 50%; 
   position: absolute; left: -17px; top: 50%; margin-top: -4px; border: 2px solid white;}
-main .skills .skillName>.skillMessage{margin-right: 20px;}
+main .skills .skillName>.skillMessage{margin-right: 36px;}
 main .skills .skillName .star{position: relative;}
 main .skills .skillName .star .edit-wrapper{position: absolute;width: 100%; height: 100%; font-size: 16px; resize: none; top: 0; left: 0; 
   width: 100%;}

@@ -7,7 +7,9 @@ Vue.component('edit-message', {
   `,
   methods:{
     input() {
-      this.$emit('input',this.message)
+      if (this.message) {
+        this.$emit('input',this.message)
+      }
     }
   }
 })
