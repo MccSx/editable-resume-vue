@@ -41,9 +41,10 @@ main .row:last-child{margin-bottom: 36px;}
 main .row>div{width: 50%; display: flex; flex-direction: row; align-items: center;}
 main .row>div>span{margin-left: 10px;}
 
-main .skills{margin-top: 30px;}
+main .skills{margin-top: 40px;}
 main .skills ul,main .projects ul{margin-top: 20px; padding-left: 10px; border-left: 4px solid #1296DB;}
 main .skills ul>li,main .projects ul>li{margin-top: 16px; margin-bottom: 26px;}
+main .skills ul>li:last-child,main .projects ul>li:last-child{margin-bottom: 10px;}
 main .skills ul>li p{margin-top: 10px;}
 main .skills h3,main .projects h3{color:#1296DB; font-weight: 700; font-size: 26px;}
 main .skills h3 .icon,main .projects h3 .icon{fill: black;}
@@ -58,7 +59,17 @@ main .skills .skillName .star .edit-wrapper{position: absolute;width: 100%; heig
 main .skills .skillName .star .edit-wrapper textarea{width: 100%; height: 100%; font-size: inherit; overflow: hidden; resize: none;
   border-radius: 5px; border: 1px solid #1296DB;}
 main .skills .skillName .star .messageName{display: none;}
-main .projects{padding-top: 30px;}
+main .projects{padding-top: 40px; margin-bottom: 40px;}
 main .projects .keywords{color: #1296DB; font-size: 15px; margin: 3px 0 8px 0;}
-main .projects .projectName{position: relative;}
+main .projects .projectName{position: relative; width: 100%;}
+main .projects .projectName a{margin-left: 32px; display: inline-block; width: 80%;}
+main .projects .projectName a svg{display: inline-block; position: absolute;}
+main .projects .projectName a .edit-wrapper{vertical-align: top;}
+main .projects .projectName a .edit-wrapper .messageName{white-space: nowrap; text-overflow: ellipsis; display: inline-block; width: 1000px; 
+  overflow: hidden; visibility: hidden;}
+main .projects .projectName a .edit-wrapper .edit{left: 0;}
+main .projects .projectName a .edit-wrapper .edit-content{left: 2em;}
+main .add>button{width: 1em; height: 1em; line-height: 1em; font-size: 28px; border-radius: 50%; border: none; background: #1296DB; cursor: pointer;}
+main .add>button:focus{outline: none;}
+
 

@@ -114,6 +114,7 @@ window.Page = {
               </div>
             </li>
           </ul>
+          <div class="add"><button @click="addSkill">+</button</div>
         </section>
         <section class="projects">
           <h3>
@@ -126,10 +127,10 @@ window.Page = {
             <li v-for="(project,index) in resume.projects">
               <div class="projectName">
                 <span><edit-span :message="project.name" @changeMessage="change(['projects',index,'name'], $event)"></edit-span></span>
-                <a :href="project.link">
+                <a href="#">
                   <svg class="icon" aria-hidden="true">
                     <use xlink:href="#icon-tiaozhuan"></use>
-                  </svg>
+                  </svg><edit-span :message="project.link" @changeMessage="change(['projects',index,'link'], $event)"></edit-span>
                 </a>
               </div>
               <p class="keywords"><edit-span :message="project.keywords" @changeMessage="change(['projects',index,'keywords'], $event)"></edit-span></p>
@@ -138,6 +139,7 @@ window.Page = {
               </div>
             </li>
           </ul>
+          <div class="add"><button @click="addProject">+</button</div>
         </section>
       </div>
     </main>
@@ -169,6 +171,12 @@ window.Page = {
         this.resume[key[0]][key[1]][key[2]] = message
       }
       this.$emit('change', this.resume)
+    },
+    addSkill() {
+      this.$emit('add-skill',{name: '请填写技能名称', starNumber:4, description: '请在这里填写技能描述，例如：会使用html和css技能1:1还原设计图'})
+    },
+    addProject() {
+      this.$emit('add-project',{name: '请填写项目名称', link: '你的项目链接', keywords: '请填写关键词', description: '请在这里填写详细描述，例如：我这个项目有哪些功能，遇到哪些问题，怎样去解决'})
     }
   }
 }

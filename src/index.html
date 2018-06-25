@@ -8,7 +8,12 @@
 </head>
 <body>
   <div id="page" class="page">
-    <router-view @login="onLogin" @change="change"></router-view>
+    <router-view 
+      @login="onLogin"
+      @change="change"
+      @add-skill="addSkill"
+      @add-project="addProject"
+  ></router-view>
   </div>
   <script src="../vendor/av-min.js"></script>
   <script src="//at.alicdn.com/t/font_716195_gnt9ps47rre.js"></script>

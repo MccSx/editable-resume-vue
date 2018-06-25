@@ -9,16 +9,16 @@ let globalData = {
     gender: '男性',
     phone: '123-1234-1234',
     skills: [
-      {name: '技能名称', starNumber:4, description: '请填写技能描述请填写技能描述请填写技能描述'},
-      {name: '技能名称', starNumber:5, description: '请填写技能描述请填写技能描述请填写技能描述'},
-      {name: '技能名称', starNumber:3, description: '请填写技能描述请填写技能描述请填写技能描述'},
-      {name: '技能名称', starNumber:4, description: '请填写技能描述请填写技能描述请填写技能描述'}
+      {name: '请填写技能名称', starNumber:4, description: '请在这里填写技能描述，例如：会使用html和css技能1:1还原设计图'},
+      {name: '请填写技能名称', starNumber:5, description: '请在这里填写技能描述，例如：会使用html和css技能1:1还原设计图'},
+      {name: '请填写技能名称', starNumber:3, description: '请在这里填写技能描述，例如：会使用html和css技能1:1还原设计图'},
+      {name: '请填写技能名称', starNumber:4, description: '请在这里填写技能描述，例如：会使用html和css技能1:1还原设计图'}
     ],
     projects: [
-      {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
-      {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
-      {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'},
-      {name: '请填写项目名称', link: 'http://...', keywords: '请填写关键词', description: '请详细描述'}
+      {name: '请填写项目名称', link: '你的项目链接', keywords: '请填写关键词', description: '请在这里填写详细描述，例如：我这个项目有哪些功能，遇到哪些问题，怎样去解决'},
+      {name: '请填写项目名称', link: '你的项目链接', keywords: '请填写关键词', description: '请在这里填写详细描述，例如：我这个项目有哪些功能，遇到哪些问题，怎样去解决'},
+      {name: '请填写项目名称', link: '你的项目链接', keywords: '请填写关键词', description: '请在这里填写详细描述，例如：我这个项目有哪些功能，遇到哪些问题，怎样去解决'},
+      {name: '请填写项目名称', link: '你的项目链接', keywords: '请填写关键词', description: '请在这里填写详细描述，例如：我这个项目有哪些功能，遇到哪些问题，怎样去解决'}
     ]
   },
   currentUser:{}
@@ -47,6 +47,12 @@ const app = new Vue({
     },
     change(data) {
       this.resume = data
+    },
+    addSkill(skillItem) {
+      this.resume.skills.push(skillItem)
+    },
+    addProject(projectItem) {
+      this.resume.projects.push(projectItem)
     }
   }
 })
