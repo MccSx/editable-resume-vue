@@ -33,7 +33,7 @@ window.Page = {
             </svg>
             分享
           </li>
-          <li>
+          <li @click="print">
             <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon-pdf"></use>
             </svg>
@@ -112,6 +112,7 @@ window.Page = {
               <div class="skillDescription">
                 <p><edit-span :message="skill.description" @changeMessage="change(['skills',index,'description'], $event)"></edit-span></p>
               </div>
+              <button class="remove" @click="removeSkill(index)">×</button>
             </li>
           </ul>
           <div class="add"><button @click="addSkill">+</button</div>
@@ -137,6 +138,7 @@ window.Page = {
               <div class="description">
                 <p><edit-span :message="project.description" @changeMessage="change(['projects',index,'description'], $event)"></edit-span></p>
               </div>
+              <button class="remove" @click="removeProject(index)">×</button>
             </li>
           </ul>
           <div class="add"><button @click="addProject">+</button</div>
@@ -175,8 +177,17 @@ window.Page = {
     addSkill() {
       this.$emit('add-skill',{name: '请填写技能名称', starNumber:4, description: '请在这里填写技能描述，例如：会使用html和css技能1:1还原设计图'})
     },
-    addProject() {
+    addProject(index) {
       this.$emit('add-project',{name: '请填写项目名称', link: '你的项目链接', keywords: '请填写关键词', description: '请在这里填写详细描述，例如：我这个项目有哪些功能，遇到哪些问题，怎样去解决'})
+    },
+    removeSkill(index) {
+      this.$emit('remove-skill', index)
+    },
+    removeProject(index) {
+      this.$emit('remove-project', index)
+    },
+    print() {
+      window.print()
     }
   }
 }

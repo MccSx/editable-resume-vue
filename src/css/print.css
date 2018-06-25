@@ -1,0 +1,4 @@
+aside{display: none;}
+main .main-page{width: 100%; overflow: visible;}
+main .skills .skillName::before,main .projects .projectName::before{content: ''; display: block; width: 10px; height: 10px; background: black; 
+  border-radius: 50%; position: absolute; left: -17px; top: 50%; margin-top: -4px; border: 2px solid white;}

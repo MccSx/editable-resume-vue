@@ -53,6 +53,16 @@ const app = new Vue({
     },
     addProject(projectItem) {
       this.resume.projects.push(projectItem)
+    },
+    removeSkill(index) {
+      console.log(1)
+      console.log(index)
+      console.log(2)
+      this.resume.skills.splice(index, 1)
+      console.log(3)
+    },
+    removeProject(index) {
+      this.resume.projects.splice(index, 1)
     }
   }
 })
