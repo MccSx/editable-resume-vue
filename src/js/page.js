@@ -1,7 +1,12 @@
 window.Page = {
   props:['resume','currentUser'],
+  data() {
+    return {
+      skinVisible: false
+    }
+  },
   template:`
-  <div>
+  <div :class="{dark: resume.isSkinChange}">
     <aside>
       <div class="up">
         <ul>
@@ -39,7 +44,7 @@ window.Page = {
             </svg>
             打印
           </li>
-          <li>
+          <li @click="skinChange">
             <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon-huanfu"></use>
             </svg>
@@ -145,6 +150,17 @@ window.Page = {
         </section>
       </div>
     </main>
+    <div class="skin-wrapper" v-show="skinVisible">
+      <div class="skin">
+        <div class="row">
+          <input type="radio" name="name" @click="changeLight"><span>浅色</span>
+        </div>
+        <div class="row">
+          <input type="radio" name="name" @click="changeDark"><span>深色</span>
+        </div>
+        <button class="change" @click="removeSkinchange">×</button>
+      </div>
+    </div>
   </div>
   `,
   methods:{
@@ -188,6 +204,18 @@ window.Page = {
     },
     print() {
       window.print()
+    },
+    skinChange() {
+      this.skinVisible = true
+    },
+    removeSkinchange() {
+      this.skinVisible = false
+    },
+    changeLight() {
+      this.$emit('change-light', false)
+    },
+    changeDark() {
+      this.$emit('change-dark', true)
     }
   }
 }

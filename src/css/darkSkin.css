@@ -1,0 +1,6 @@
+.dark aside{background: white;}
+.dark main{color: #77858B;}
+.dark main .main-page{background: #3B4549;}
+.dark aside .up li:hover,.dark aside .down li:hover{color: #1296DB;}
+.dark main .skills svg,.dark main .projects svg{fill: #77858B;}
+.dark main .profile{border-bottom: 2px solid #77858B;}

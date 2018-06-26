@@ -5,6 +5,8 @@ h1,h2,h3,h4,h5,h6{font-weight: normal;}
 body{font-size: 18px; width: 100vw; height: 100vh;}
 .icon {width: 1em; height: 1em; vertical-align: -0.15em; fill: currentColor; overflow: hidden;}
 .page{width: 100%; height: 100%;}
+button{ cursor: pointer;}
+button:focus{outline: none;}
 
 .edit-wrapper{display: inline-block; position: relative;}
 .edit-wrapper>.edit{left: 100%; position: absolute; width: 2em; background: #52BB55; border-radius: 5px;
@@ -46,7 +48,6 @@ main .skills ul,main .projects ul{margin-top: 20px; padding-left: 10px; border-l
 main .skills ul>li,main .projects ul>li{margin-top: 16px; margin-bottom: 26px; position: relative;}
 main .skills ul>li .remove,main .projects ul>li .remove{position: absolute; top: 0; right: 0; font-size: 20px; border-radius: 50%; 
   width: 1em; height: 1em; line-height: 1em; border: none; background: #D05E5E; color: white; cursor: pointer;}
-main .skills ul>li .remove:focus,main .projects ul>li .remove:focus{outline: none;}
 main .skills ul>li:last-child,main .projects ul>li:last-child{margin-bottom: 10px;}
 main .skills ul>li p{margin-top: 10px;}
 main .skills h3,main .projects h3{color:#1296DB; font-weight: 700; font-size: 26px;}
@@ -73,6 +74,12 @@ main .projects .projectName a .edit-wrapper .edit{left: 0;}
 main .projects .projectName a .edit-wrapper .edit-content{left: 2em;}
 main .add>button{width: 1em; height: 1em; line-height: 1em; font-size: 28px; border-radius: 50%; border: none; background: #1296DB; cursor: pointer; 
   color: white;}
-main .add>button:focus{outline: none;}
 
-
+.skin-wrapper{width: 100%; height: 100%; position: fixed; background: rgba(0, 0, 0, 0.3); display: flex; justify-content: center; align-items: center;}
+.skin-wrapper .skin{width: 30vh; height: 30vh; background: #3B4549; border-radius: 10px; display: flex; flex-direction: column; 
+  justify-content: center; align-items: center; position: relative;}
+.skin-wrapper .skin .row{margin-bottom: 20px; color: #77858B; text-align: center;}
+.skin-wrapper .skin .change{position: absolute; top: 10px; right: 10px; width: 1em; height: 1em; line-height: 1em; border: none; 
+  border-radius: 50%; background: transparent; color: #AFB3BA; font-size: 16px; font-weight: bold;}
+.skin-wrapper .skin .change:hover{background: #333333;}
+.skin-wrapper .skin .row input{margin-right: 10px; display: inline-block; width: 16px; height: 16px;}

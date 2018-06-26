@@ -1,6 +1,7 @@
 let globalData = {
   resume:{
     name: '姓名',
+    isSkinChange:false,
     jobTitle: '前端工程师',
     birthday: '1990.1.1',
     email: 'xxx@163.com',
@@ -63,6 +64,14 @@ const app = new Vue({
     },
     removeProject(index) {
       this.resume.projects.splice(index, 1)
+    },
+    changeLight(bol) {
+      console.log(bol)
+      this.resume.isSkinChange = bol
+    },
+    changeDark(bol) {
+      console.log(bol)
+      this.resume.isSkinChange = bol
     }
   }
 })
