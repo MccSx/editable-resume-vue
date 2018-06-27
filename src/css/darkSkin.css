@@ -2,5 +2,11 @@
 .dark main{color: #77858B;}
 .dark main .main-page{background: #3B4549;}
 .dark aside .up li:hover,.dark aside .down li:hover{color: #1296DB;}
+.dark aside .up li:hover{border-color: #1296DB;}
 .dark main .skills svg,.dark main .projects svg{fill: #77858B;}
 .dark main .profile{border-bottom: 2px solid #77858B;}
+.dark main .skills h3,.dark main .projects h3{color:#6ED5DB;}
+.dark main .skills ul,.dark main .projects ul{border-left: 4px solid #6ED5DB;}
+.dark main svg.active{fill:#6ED5DB;}
+.dark main .add>button{background: #6ED5DB;}
+.dark main .projects .keywords{color: #6ED5DB;}

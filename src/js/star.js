@@ -14,7 +14,7 @@ Vue.component('star', {
   template:`
     <div class="star">
       <span v-for="n in number">
-        <svg class="icon" aria-hidden="true" style="fill:#1296DB">
+        <svg class="icon active" aria-hidden="true">
           <use xlink:href="#icon-wujiaoxing1"></use>
         </svg>
       </span><span v-for="n in (5-number)">

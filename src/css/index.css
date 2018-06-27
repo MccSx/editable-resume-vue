@@ -31,9 +31,10 @@ aside .up li.user{border: none;}
 aside .down ul{margin-bottom: 20px;}
 aside .down li:last-child{border-bottom: 1px solid #444D51;}
 aside .up li:hover,aside .down li:hover{color: white;}
+aside .up li:hover{border-color: white;}
 aside .up{flex-grow: 1;}
 
-main{background: #E8E8EA; width: 100%; padding: 12px 0 0 12px;}
+main{background: #E8E8EA; width: 100%; }
 main .main-page{width: 80%; height: 100%; background: white; padding: 50px 40px 0 40px; overflow: auto;}
 main .profile{border-bottom: 2px solid black; padding-left: 40px;}
 main .name{font-weight: 700; margin-bottom: 5px;}
@@ -42,6 +43,7 @@ main .row{display: flex; flex-direction: row; width: 80%; margin-bottom: 18px;}
 main .row:last-child{margin-bottom: 36px;}
 main .row>div{width: 50%; display: flex; flex-direction: row; align-items: center;}
 main .row>div>span{margin-left: 10px;}
+main svg.active{fill:#1296DB;}
 
 main .skills{margin-top: 40px;}
 main .skills ul,main .projects ul{margin-top: 20px; padding-left: 10px; border-left: 4px solid #1296DB;}
