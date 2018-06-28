@@ -1,5 +1,5 @@
 let globalData = {
-  resume:{
+  displayResume:{
     name: '姓名',
     isSkinChange:false,
     jobTitle: '前端工程师',
@@ -22,7 +22,10 @@ let globalData = {
       {name: '请填写项目名称', link: '你的项目链接', keywords: '请填写关键词', description: '请在这里填写详细描述，例如：我这个项目有哪些功能，遇到哪些问题，怎样去解决'}
     ]
   },
-  currentUser:{}
+  currentUser: {},
+  previewResume: {},
+  shareLink: '',
+  mode: 'edit'
 }
 
 const routes = [
@@ -43,35 +46,35 @@ const app = new Vue({
     onLogin(user) {
       this.currentUser = user
       getResume(user).then((resume) => {
-        globalData.resume = resume
+        globalData.displayResume = resume
       })
     },
     change(data) {
-      this.resume = data
+      this.displayResume = data
     },
     addSkill(skillItem) {
-      this.resume.skills.push(skillItem)
+      this.displayResume.skills.push(skillItem)
     },
     addProject(projectItem) {
-      this.resume.projects.push(projectItem)
+      this.displayResume.projects.push(projectItem)
     },
     removeSkill(index) {
       console.log(1)
       console.log(index)
       console.log(2)
-      this.resume.skills.splice(index, 1)
+      this.displayResume.skills.splice(index, 1)
       console.log(3)
     },
     removeProject(index) {
-      this.resume.projects.splice(index, 1)
+      this.displayResume.projects.splice(index, 1)
     },
     changeLight(bol) {
       console.log(bol)
-      this.resume.isSkinChange = bol
+      this.displayResume.isSkinChange = bol
     },
     changeDark(bol) {
       console.log(bol)
-      this.resume.isSkinChange = bol
+      this.displayResume.isSkinChange = bol
     }
   }
 })
@@ -79,8 +82,21 @@ const app = new Vue({
 let currentUser = AV.User.current()
 if (currentUser) {
   globalData.currentUser = currentUser.toJSON()
+  globalData.shareLink = location.origin + location.pathname + '?user_id=' + globalData.currentUser.objectId
+  // console.log(globalData.shareLink)
   getResume(currentUser.toJSON()).then((resume) => {
-    globalData.resume = resume
+    globalData.displayResume = resume
+  })
+}
+
+let search = location.search
+let reg = /user_id=([^&]+)/
+let matches = search.match(reg)
+let userId
+if (matches) {
+  userId = matches[1]
+  getResume({objectId: userId}).then((resume) => {
+    globalData.displayResume = resume
   })
 }
 

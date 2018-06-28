@@ -1,12 +1,13 @@
 window.Page = {
-  props:['resume','currentUser'],
+  props:['displayResume','currentUser','shareLink'],
   data() {
     return {
-      skinVisible: false
+      skinVisible: false,
+      shareVisible: false
     }
   },
   template:`
-  <div :class="{dark: resume.isSkinChange}">
+  <div :class="{dark: displayResume.isSkinChange}">
     <aside>
       <div class="up">
         <ul>
@@ -32,7 +33,7 @@ window.Page = {
             </svg>
             保存
           </li>
-          <li>
+          <li @click="share">
             <svg class="icon" aria-hidden="true">
               <use xlink:href="#icon-fenxiang"></use>
             </svg>
@@ -56,20 +57,20 @@ window.Page = {
     <main>
       <div class="main-page">
         <section class="profile">
-          <h2 class="name"><edit-span :message="resume.name" @changeMessage="change('name', $event)"></edit-span></h2>
-          <h5 class="job"><edit-span :message="resume.jobTitle" @changeMessage="change('jobTitle', $event)"></edit-span></h5>
+          <h2 class="name"><edit-span :message="displayResume.name" @changeMessage="change('name', $event)"></edit-span></h2>
+          <h5 class="job"><edit-span :message="displayResume.jobTitle" @changeMessage="change('jobTitle', $event)"></edit-span></h5>
           <div class="row">
             <div>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-youjian"></use>
               </svg>
-              <span><edit-span :message="resume.email" @changeMessage="change('email', $event)"></edit-span></span>
+              <span><edit-span :message="displayResume.email" @changeMessage="change('email', $event)"></edit-span></span>
             </div>
             <div>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-xingbie"></use>
               </svg>
-              <span><edit-span :message="resume.gender" @changeMessage="change('gender', $event)"></edit-span></span>
+              <span><edit-span :message="displayResume.gender" @changeMessage="change('gender', $event)"></edit-span></span>
             </div>
           </div>
           <div class="row">
@@ -77,13 +78,13 @@ window.Page = {
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-shouji"></use>
               </svg>
-              <span><edit-span :message="resume.phone" @changeMessage="change('phone', $event)"></edit-span></span>
+              <span><edit-span :message="displayResume.phone" @changeMessage="change('phone', $event)"></edit-span></span>
             </div>
             <div>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-xueli"></use>
               </svg>
-              <span><edit-span :message="resume.education" @changeMessage="change('education', $event)"></edit-span></span>
+              <span><edit-span :message="displayResume.education" @changeMessage="change('education', $event)"></edit-span></span>
             </div>
           </div>
           <div class="row">
@@ -91,13 +92,13 @@ window.Page = {
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-dizhi"></use>
               </svg>
-              <span><edit-span :message="resume.address" @changeMessage="change('address', $event)"></edit-span></span>
+              <span><edit-span :message="displayResume.address" @changeMessage="change('address', $event)"></edit-span></span>
             </div>
             <div>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-rili"></use>
               </svg>
-              <span><edit-span :message="resume.birthday" @changeMessage="change('birthday', $event)"></edit-span></span>
+              <span><edit-span :message="displayResume.birthday" @changeMessage="change('birthday', $event)"></edit-span></span>
             </div>
           </div>
         </section>
@@ -109,7 +110,7 @@ window.Page = {
             个人技能
           </h3>
           <ul>
-            <li v-for="(skill,index) in resume.skills">
+            <li v-for="(skill,index) in displayResume.skills">
               <div class="skillName">
                 <div class="skillMessage"><edit-span :message="skill.name" @changeMessage="change(['skills',index,'name'], $event)"></edit-span></div>
                 <star :num="skill.starNumber" @changeStar="change(['skills',index,'starNumber'], $event)"></star>
@@ -130,7 +131,7 @@ window.Page = {
             个人项目
           </h3>
           <ul>
-            <li v-for="(project,index) in resume.projects">
+            <li v-for="(project,index) in displayResume.projects">
               <div class="projectName">
                 <span><edit-span :message="project.name" @changeMessage="change(['projects',index,'name'], $event)"></edit-span></span>
                 <a href="#">
@@ -161,6 +162,13 @@ window.Page = {
         <button class="change" @click="removeSkinchange">×</button>
       </div>
     </div>
+    <div class="share-wrapper" v-show="shareVisible">
+      <div class="share">
+        <h3>你可以把下面的链接分享给面试官</h3>
+        <textarea readonly>{{shareLink}}</textarea>
+        <button @click="removeShare">×</button>
+      </div>
+    </div>
   </div>
   `,
   methods:{
@@ -176,7 +184,7 @@ window.Page = {
       let {id} = AV.User.current()
       if (id) {
         let user = AV.Object.createWithoutData('User', id)
-        user.set('resume', this.resume)
+        user.set('resume', this.displayResume)
         user.save().then(() => {alert('保存成功')}, () => {alert('保存失败')})
       } else {
         alert('请先登录')
@@ -184,11 +192,11 @@ window.Page = {
     },
     change(key,message) {
       if (typeof key === 'string') {
-        this.resume[key] = message
+        this.displayResume[key] = message
       } else if(typeof key === 'object') {
-        this.resume[key[0]][key[1]][key[2]] = message
+        this.displayResume[key[0]][key[1]][key[2]] = message
       }
-      this.$emit('change', this.resume)
+      this.$emit('change', this.displayResume)
     },
     addSkill() {
       this.$emit('add-skill',{name: '请填写技能名称', starNumber:4, description: '请在这里填写技能描述，例如：会使用html和css技能1:1还原设计图'})
@@ -216,6 +224,12 @@ window.Page = {
     },
     changeDark() {
       this.$emit('change-dark', true)
+    },
+    share() {
+      this.shareVisible = true
+    },
+    removeShare() {
+      this.shareVisible = false
     }
   }
 }

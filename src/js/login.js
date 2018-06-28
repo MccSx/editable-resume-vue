@@ -1,5 +1,5 @@
 window.Login = {
-  props:['resume','currentUser'],
+  props:['currentUser'],
   data() {
     return {
       loginData:{
