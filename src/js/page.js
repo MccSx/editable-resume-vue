@@ -1,5 +1,5 @@
 window.Page = {
-  props:['displayResume','currentUser','shareLink'],
+  props:['displayResume','currentUser','shareLink','mode'],
   data() {
     return {
       skinVisible: false,
@@ -8,7 +8,7 @@ window.Page = {
   },
   template:`
   <div :class="{dark: displayResume.isSkinChange}">
-    <aside>
+    <aside v-show="mode === 'edit' ">
       <div class="up">
         <ul>
           <li @click="isLogin" v-show="!currentUser.objectId">登录/注册</li>
@@ -118,10 +118,10 @@ window.Page = {
               <div class="skillDescription">
                 <p><edit-span :message="skill.description" @changeMessage="change(['skills',index,'description'], $event)"></edit-span></p>
               </div>
-              <button class="remove" @click="removeSkill(index)">×</button>
+              <button class="remove" @click="removeSkill(index)" v-show=" mode === 'edit' ">×</button>
             </li>
           </ul>
-          <div class="add"><button @click="addSkill">+</button</div>
+          <div class="add" v-show=" mode === 'edit' "><button @click="addSkill">+</button</div>
         </section>
         <section class="projects">
           <h3>
@@ -144,31 +144,19 @@ window.Page = {
               <div class="description">
                 <p><edit-span :message="project.description" @changeMessage="change(['projects',index,'description'], $event)"></edit-span></p>
               </div>
-              <button class="remove" @click="removeProject(index)">×</button>
+              <button class="remove" @click="removeProject(index)" v-show=" mode === 'edit' ">×</button>
             </li>
           </ul>
-          <div class="add"><button @click="addProject">+</button</div>
+          <div class="add" v-show=" mode === 'edit' "><button @click="addProject">+</button</div>
         </section>
       </div>
     </main>
-    <div class="skin-wrapper" v-show="skinVisible">
-      <div class="skin">
-        <div class="row">
-          <input type="radio" name="name" @click="changeLight"><span>浅色</span>
-        </div>
-        <div class="row">
-          <input type="radio" name="name" @click="changeDark"><span>深色</span>
-        </div>
-        <button class="change" @click="removeSkinchange">×</button>
-      </div>
-    </div>
-    <div class="share-wrapper" v-show="shareVisible">
-      <div class="share">
-        <h3>你可以把下面的链接分享给面试官</h3>
-        <textarea readonly>{{shareLink}}</textarea>
-        <button @click="removeShare">×</button>
-      </div>
-    </div>
+    <skin-change v-show="skinVisible" 
+      @change-light="changeLight"
+      @change-dark="changeDark"
+      @remove-skin-change="removeSkinchange"
+    ></skin-change>
+    <share v-show="shareVisible" :shareLink="shareLink" @remove-share="removeShare"></share>
   </div>
   `,
   methods:{

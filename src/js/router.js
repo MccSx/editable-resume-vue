@@ -23,7 +23,6 @@ let globalData = {
     ]
   },
   currentUser: {},
-  previewResume: {},
   shareLink: '',
   mode: 'edit'
 }
@@ -59,21 +58,15 @@ const app = new Vue({
       this.displayResume.projects.push(projectItem)
     },
     removeSkill(index) {
-      console.log(1)
-      console.log(index)
-      console.log(2)
       this.displayResume.skills.splice(index, 1)
-      console.log(3)
     },
     removeProject(index) {
       this.displayResume.projects.splice(index, 1)
     },
     changeLight(bol) {
-      console.log(bol)
       this.displayResume.isSkinChange = bol
     },
     changeDark(bol) {
-      console.log(bol)
       this.displayResume.isSkinChange = bol
     }
   }
@@ -98,6 +91,7 @@ if (matches) {
   getResume({objectId: userId}).then((resume) => {
     globalData.displayResume = resume
   })
+  globalData.mode = 'preview'
 }
 
 function getResume(user) {
